@@ -41,6 +41,8 @@ where
 
 #[cfg(test)]
 mod tests {
+    use crate::clustering::TermWeighter;
+
     use super::*;
 
     #[test]
@@ -50,8 +52,9 @@ mod tests {
     }
 
     #[test]
-    fn test_default_clusterer() {
-        let clusterer = ClustererFS::default(); 
-        println!("{:?}", clusterer);
+    fn test_term_vector_calculation() {
+        let weighter = TermWeighter::default();
+        let term_freqs = weighter.calculate_term_freqs();
+        let _clusterer = ClustererFS::default(); 
     }
 }
